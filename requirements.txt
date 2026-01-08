@@ -1,0 +1,7 @@
+Django>=4.2
+python-dotenv
+pytest
+pytest-django
+pylint
+pylint-django
+Pillow

@@ -1,0 +1,89 @@
+{% extends 'publicpage/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<header class="hero-section"
+    style="background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;">
+    <div class="hero-overlay">
+        <div class="container text-center text-white">
+            <h1 class="display-3 fw-bold mb-3">FIND YOUR REAL ESTATE</h1>
+            <p class="lead mb-5 text-uppercase letter-spacing-2">We have the best properties in town</p>
+
+            <div class="bg-white p-4 d-inline-block text-start shadow-lg" style="width: 100%; max-width: 900px;">
+                <form action="{% url 'property_list' %}" method="GET" class="row g-2 align-items-end">
+                    <div class="col-md-8">
+                        <label class="form-label text-dark fw-bold small">Location or Keyword</label>
+                        <input type="text" name="q" class="form-control rounded-0"
+                            placeholder="e.g. New York, Apartment...">
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary w-100 h-100">SEARCH PROPERTY</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Intro Section -->
+<section class="intro-section bg-white">
+    <div class="container intro-text-box">
+        <h2 class="intro-heading text-primary">HeyDay Realty</h2>
+        <p class="intro-text">
+            We are a group of dedicated professionals with years of experience in the real estate market.
+            Our mission is to help you find the perfect property that suits your lifestyle and budget.
+            Whether you are looking for a luxury apartment, a commercial space, or a suburban home, we have got you
+            covered.
+        </p>
+        <a href="{% url 'about' %}" class="btn btn-primary">READ MORE</a>
+    </div>
+</section>
+
+<!-- Featured Projects -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="intro-heading">FEATURED PROJECTS</h2>
+            <div style="width: 60px; height: 3px; background-color: var(--primary-color); margin: 0 auto;"></div>
+        </div>
+        <div class="row g-4">
+            {% for property in featured_properties %}
+            <div class="col-md-4">
+                <div class="card property-card h-100">
+                    <div class="position-relative overflow-hidden">
+                        {% if property.images.first %}
+                        <img src="{{ property.images.first.image.url }}" class="card-img-top"
+                            alt="{{ property.title }}">
+                        {% else %}
+                        <img src="https://via.placeholder.com/400x300?text=No+Image" class="card-img-top"
+                            alt="No image">
+                        {% endif %}
+                        <div class="position-absolute bottom-0 start-0 w-100 p-2 bg-primary text-white text-center fw-bold small"
+                            style="opacity: 0.9;">
+                            {{ property.get_property_type_display }}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{% url 'property_detail' property.slug %}" class="text-dark">{{
+                                property.title }}</a></h5>
+                        <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-primary"></i> {{
+                            property.location }}</p>
+                        <span class="price-tag">${{ property.price }}</span>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between text-muted small">
+                        <span><i class="bi bi-aspect-ratio"></i> {{ property.area_sqft }} sqft</span>
+                        <span><i class="bi bi-lamp"></i> {{ property.bedrooms }} Bed</span>
+                        <span><i class="bi bi-droplet"></i> {{ property.bathrooms }} Bath</span>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+                <p class="text-muted">No featured projects available.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

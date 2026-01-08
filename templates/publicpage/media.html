@@ -1,0 +1,62 @@
+{% extends 'publicpage/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Header -->
+<div class="bg-light py-5 text-center">
+    <div class="container">
+        <h1 class="fw-bold mb-3">Media & Press</h1>
+        <p class="text-muted lead">Latest updates, events, and news from HeyDay Realty.</p>
+    </div>
+</div>
+
+<!-- News Grid -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Article 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        class="card-img-top" alt="News Image">
+                    <div class="card-body p-4">
+                        <small class="text-primary fw-bold text-uppercase">Press Release</small>
+                        <h5 class="fw-bold mt-2">HeyDay Realty Expands to New Markets</h5>
+                        <p class="text-muted small mt-3">We are thrilled to announce our expansion into the downtown
+                            commercial sector...</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Article 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        class="card-img-top" alt="News Image">
+                    <div class="card-body p-4">
+                        <small class="text-primary fw-bold text-uppercase">Events</small>
+                        <h5 class="fw-bold mt-2">Annual Real Estate Summit 2025</h5>
+                        <p class="text-muted small mt-3">Join us for the biggest real estate event of the year featuring
+                            industry leaders...</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Article 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        class="card-img-top" alt="News Image">
+                    <div class="card-body p-4">
+                        <small class="text-primary fw-bold text-uppercase">Awards</small>
+                        <h5 class="fw-bold mt-2">Best Luxury Agency Award</h5>
+                        <p class="text-muted small mt-3">HeyDay Realty has been recognized as the top luxury agency in
+                            the region...</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-3">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
