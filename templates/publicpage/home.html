@@ -2,88 +2,256 @@
 {% load static %}
 
 {% block content %}
-<!-- Hero Section -->
-<header class="hero-section"
-    style="background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;">
-    <div class="hero-overlay">
-        <div class="container text-center text-white">
-            <h1 class="display-3 fw-bold mb-3">FIND YOUR REAL ESTATE</h1>
-            <p class="lead mb-5 text-uppercase letter-spacing-2">We have the best properties in town</p>
-
-            <div class="bg-white p-4 d-inline-block text-start shadow-lg" style="width: 100%; max-width: 900px;">
-                <form action="{% url 'property_list' %}" method="GET" class="row g-2 align-items-end">
-                    <div class="col-md-8">
-                        <label class="form-label text-dark fw-bold small">Location or Keyword</label>
-                        <input type="text" name="q" class="form-control rounded-0"
-                            placeholder="e.g. New York, Apartment...">
-                    </div>
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-primary w-100 h-100">SEARCH PROPERTY</button>
-                    </div>
-                </form>
+<!-- Hero Carousel Section -->
+<div id="heroCarousel" class="carousel slide carousel-fade hero-section" data-bs-ride="carousel"
+    data-bs-interval="5000">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner h-100">
+        <!-- Slide 1 -->
+        <div class="carousel-item active h-100">
+            <div class="hero-bg"
+                style="background-image: url('https://images.unsplash.com/photo-1600596542815-27b5f045063e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+            </div>
+            <div class="hero-overlay d-flex align-items-center justify-content-center text-center">
+                <div class="container hero-content text-white" data-aos="fade-up">
+                    <h1 class="display-3 fw-bold mb-3">Experience Luxury Living</h1>
+                    <p class="lead mb-4 letter-spacing-2">Discover our collection of exclusive properties</p>
+                    <a href="{% url 'property_list' %}" class="btn btn-primary btn-lg px-5">View Property Details</a>
+                </div>
+            </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item h-100">
+            <div class="hero-bg"
+                style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+            </div>
+            <div class="hero-overlay d-flex align-items-center justify-content-center text-center">
+                <div class="container hero-content text-white">
+                    <h1 class="display-3 fw-bold mb-3">Your Dream Home Awaits</h1>
+                    <p class="lead mb-4 letter-spacing-2">Expert guidance from viewing to closing</p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg px-5">Schedule a Viewing</a>
+                </div>
+            </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-item h-100">
+            <div class="hero-bg"
+                style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+            </div>
+            <div class="hero-overlay d-flex align-items-center justify-content-center text-center">
+                <div class="container hero-content text-white">
+                    <h1 class="display-3 fw-bold mb-3">Prime Locations Only</h1>
+                    <p class="lead mb-4 letter-spacing-2">We find the best spots in the city for you</p>
+                    <a href="{% url 'property_list' %}" class="btn btn-primary btn-lg px-5">Get Brochure</a>
+                </div>
             </div>
         </div>
     </div>
-</header>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
-<!-- Intro Section -->
-<section class="intro-section bg-white">
-    <div class="container intro-text-box">
-        <h2 class="intro-heading text-primary">HeyDay Realty</h2>
-        <p class="intro-text">
-            We are a group of dedicated professionals with years of experience in the real estate market.
-            Our mission is to help you find the perfect property that suits your lifestyle and budget.
-            Whether you are looking for a luxury apartment, a commercial space, or a suburban home, we have got you
-            covered.
-        </p>
-        <a href="{% url 'about' %}" class="btn btn-primary">READ MORE</a>
+<!-- Value Proposition Section -->
+<section class="py-5 bg-white">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="section-heading mb-2">Why Choose HeyDay Realty?</h2>
+            <p class="text-muted">Defining the standard of real estate excellence</p>
+            <div class="separator-line"></div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="value-prop-card text-center p-4 h-100">
+                    <div class="icon-circle mb-3 mx-auto text-primary bg-light">
+                        <i class="bi bi-shield-check display-6"></i>
+                    </div>
+                    <h4>Trusted Experts</h4>
+                    <p class="text-muted">Over 15 years of experience ensuring safe and transparent transactions for
+                        every client.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-prop-card text-center p-4 h-100">
+                    <div class="icon-circle mb-3 mx-auto text-primary bg-light">
+                        <i class="bi bi-geo-alt display-6"></i>
+                    </div>
+                    <h4>Local Knowledge</h4>
+                    <p class="text-muted">Deep insights into neighborhood trends, schools, and amenities to help you
+                        choose right.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-prop-card text-center p-4 h-100">
+                    <div class="icon-circle mb-3 mx-auto text-primary bg-light">
+                        <i class="bi bi-star display-6"></i>
+                    </div>
+                    <h4>Premium Listings</h4>
+                    <p class="text-muted">Exclusive access to high-end properties and off-market opportunities.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Featured Projects -->
+<!-- Featured Projects Carousel Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-5">
+            <div>
+                <h2 class="section-heading mb-1">Featured Properties</h2>
+                <div class="separator-line ms-0"></div>
+            </div>
+            <a href="{% url 'property_list' %}" class="btn btn-outline-primary btn-sm">View All</a>
+        </div>
+
+        <!-- Horizontal Scroll Container -->
+        <div class="featured-scroll-container">
+            <div class="d-flex flex-nowrap gap-4 pb-4" style="overflow-x: auto; scroll-behavior: smooth;">
+                {% for property in featured_properties %}
+                <div class="col-10 col-md-5 col-lg-4 flex-shrink-0">
+                    <div class="card property-card h-100 border-0 shadow-sm">
+                        <div class="position-relative overflow-hidden">
+                            {% if property.images.first %}
+                            <img src="{{ property.images.first.image.url }}" class="card-img-top"
+                                alt="{{ property.title }}" style="height: 280px; object-fit: cover;">
+                            {% else %}
+                            <img src="https://via.placeholder.com/400x300?text=No+Image" class="card-img-top"
+                                alt="No image">
+                            {% endif %}
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-primary">{{ property.get_property_type_display }}</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate">{{ property.title }}</h5>
+                            <p class="text-muted small mb-2"><i class="bi bi-geo-alt-fill text-primary"></i> {{
+                                property.location }}</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="h5 fw-bold text-accent mb-0">${{ property.price }}</span>
+                                <a href="{% url 'property_detail' property.slug %}"
+                                    class="btn btn-sm btn-primary">Details</a>
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer bg-white border-top-0 pt-0 text-muted small d-flex justify-content-between">
+                            <span><i class="bi bi-aspect-ratio me-1"></i>{{ property.area_sqft }} sqft</span>
+                            <span><i class="bi bi-lamp me-1"></i>{{ property.bedrooms }} Bed</span>
+                            <span><i class="bi bi-droplet me-1"></i>{{ property.bathrooms }} Bath</span>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12 text-center py-5">
+                    <p class="text-muted">No featured projects available at the moment.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Neighborhood & Lifestyle Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-heading">Lifestyle & Neighborhoods</h2>
+            <div class="separator-line"></div>
+        </div>
+        <div class="row g-0">
+            <div class="col-md-6 position-relative lifestyle-item">
+                <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" class="img-fluid w-100 h-100"
+                    style="object-fit: cover; min-height: 300px;" alt="Suburban Living">
+                <div class="lifestyle-overlay">
+                    <h3>Suburban Living</h3>
+                    <p>Peaceful communities with top-rated schools.</p>
+                </div>
+            </div>
+            <div class="col-md-6 position-relative lifestyle-item">
+                <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df" class="img-fluid w-100 h-100"
+                    style="object-fit: cover; min-height: 300px;" alt="City Life">
+                <div class="lifestyle-overlay">
+                    <h3>City Pulse</h3>
+                    <p>Vibrant downtown apartments close to the action.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
 <section class="py-5 bg-light">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="intro-heading">FEATURED PROJECTS</h2>
-            <div style="width: 60px; height: 3px; background-color: var(--primary-color); margin: 0 auto;"></div>
+            <h2 class="section-heading">What Our Clients Say</h2>
+            <div class="separator-line"></div>
         </div>
-        <div class="row g-4">
-            {% for property in featured_properties %}
-            <div class="col-md-4">
-                <div class="card property-card h-100">
-                    <div class="position-relative overflow-hidden">
-                        {% if property.images.first %}
-                        <img src="{{ property.images.first.image.url }}" class="card-img-top"
-                            alt="{{ property.title }}">
-                        {% else %}
-                        <img src="https://via.placeholder.com/400x300?text=No+Image" class="card-img-top"
-                            alt="No image">
-                        {% endif %}
-                        <div class="position-absolute bottom-0 start-0 w-100 p-2 bg-primary text-white text-center fw-bold small"
-                            style="opacity: 0.9;">
-                            {{ property.get_property_type_display }}
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <div class="mb-4 text-warning">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="lead fst-italic mb-4">"HeyDay Realty made finding our first home an absolute
+                                breeze. Their knowledge of the market and dedication to our needs was unmatched."</p>
+                            <h5 class="fw-bold">Sarah & Tom Jenkins</h5>
+                            <small class="text-muted">Homeowners, Downtown District</small>
                         </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="{% url 'property_detail' property.slug %}" class="text-dark">{{
-                                property.title }}</a></h5>
-                        <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-primary"></i> {{
-                            property.location }}</p>
-                        <span class="price-tag">${{ property.price }}</span>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between text-muted small">
-                        <span><i class="bi bi-aspect-ratio"></i> {{ property.area_sqft }} sqft</span>
-                        <span><i class="bi bi-lamp"></i> {{ property.bedrooms }} Bed</span>
-                        <span><i class="bi bi-droplet"></i> {{ property.bathrooms }} Bath</span>
+                </div>
+                <div class="carousel-item">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <div class="mb-4 text-warning">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                                    class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="lead fst-italic mb-4">"Professional, courteous, and efficient. I sold my property
+                                in record time thanks to their stunning marketing strategy."</p>
+                            <h5 class="fw-bold">Michael Ross</h5>
+                            <small class="text-muted">Seller, Green Valley</small>
+                        </div>
                     </div>
                 </div>
             </div>
-            {% empty %}
-            <div class="col-12 text-center py-5">
-                <p class="text-muted">No featured projects available.</p>
-            </div>
-            {% endfor %}
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"
+                    style="background-size: 50%;"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"
+                    style="background-size: 50%;"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+    </div>
+</section>
+
+<!-- CTA Bar -->
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+        <h2 class="mb-3">Ready to Find Your Place?</h2>
+        <p class="lead mb-4">Contact us today to schedule a personal tour or get a free consultation.</p>
+        <a href="{% url 'contact' %}" class="btn btn-light btn-lg fw-bold text-primary shadow-lg">Schedule Your Personal
+            Tour</a>
     </div>
 </section>
 {% endblock %}

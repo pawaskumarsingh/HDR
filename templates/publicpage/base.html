@@ -6,12 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}HeyDay Realty{% endblock %}</title>
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 
 <body>
@@ -20,7 +22,7 @@
         <div class="container d-flex justify-content-between align-items-center">
             <div class="contact-info">
                 <span class="me-3"><i class="bi bi-telephone-fill text-primary"></i> +1 234 567 8900</span>
-                <span><i class="bi bi-envelope-fill text-primary"></i> info@heydayrealty.com</span>
+                <span><i class="bi bi-envelope-fill text-primary"></i> info@heydayrealty.in</span>
             </div>
             <div class="social-icons">
                 <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
@@ -35,7 +37,7 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">
-                <span class="text-dark">HEYDAY</span> <span class="text-primary">REALTY</span>
+                <img src="{% static 'img/logo.png' %}" alt="HeyDay Realty">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -104,7 +106,14 @@
         </div>
     </footer>
 
+    <!-- Sticky CTA (Global) -->
+    <div class="sticky-cta">
+        <p class="sticky-text d-none d-md-block mb-0">Ready to find your dream home?</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary rounded-pill px-4 shadow">Book a Visit</a>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 
 </html>
