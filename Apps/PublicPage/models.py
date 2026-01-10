@@ -6,12 +6,20 @@ class Property(models.Model):
         ('sale', 'For Sale'),
         ('rent', 'For Rent'),
     )
+    CATEGORY_CHOICES = (
+        ('Apartments', 'Apartments / Condos'),
+        ('Villas', 'Villas / Independent Houses'),
+        ('Commercial', 'Commercial Properties'),
+        ('Luxury', 'Luxury Properties'),
+        ('Plots', 'Plots / Land'),
+    )
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True)
     price = models.DecimalField(max_digits=12, decimal_places=2)
     location = models.CharField(max_length=200)
     description = models.TextField()
     property_type = models.CharField(max_length=10, choices=PROPERTY_TYPES, default='sale')
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='Apartments')
     bedrooms = models.PositiveIntegerField()
     bathrooms = models.PositiveIntegerField()
     area_sqft = models.PositiveIntegerField()
@@ -27,8 +35,15 @@ class Property(models.Model):
         return self.title
 
 class PropertyImage(models.Model):
+    IMAGE_CATEGORIES = (
+        ('General', 'General'),
+        ('Interiors', 'Interiors'),
+        ('Amenities', 'Amenities'),
+        ('Neighborhood', 'Neighborhood / Lifestyle'),
+    )
     property = models.ForeignKey(Property, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='properties/')
+    category = models.CharField(max_length=20, choices=IMAGE_CATEGORIES, default='General')
 
     def __str__(self):
         return f"Image for {self.property.title}"

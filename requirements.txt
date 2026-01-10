@@ -5,3 +5,4 @@ pytest-django
 pylint
 pylint-django
 Pillow
+psycopg2-binary

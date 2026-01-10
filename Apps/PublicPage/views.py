@@ -58,7 +58,13 @@ def contact(request):
     return render(request, 'publicpage/contact.html')
 
 def media_page(request):
-    return render(request, 'publicpage/media.html')
+    images = PropertyImage.objects.select_related('property').all().order_by('-id')
+    categories = PropertyImage.IMAGE_CATEGORIES
+    
+    return render(request, 'publicpage/media.html', {
+        'images': images,
+        'categories': categories
+    })
 
 def nri_page(request):
     return render(request, 'publicpage/nri.html')
