@@ -36,7 +36,7 @@
     <!-- Main Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">
+            <a class="navbar-brand" href="{% url 'public:home' %}">
                 <img src="{% static 'img/logo.png' %}" alt="HeyDay Realty">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -44,13 +44,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'property_list' %}">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'media' %}">Media</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'nri' %}">NRI</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'career' %}">Careers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'public:home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'public:property_list' %}">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'public:media' %}">Media</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'public:nri' %}">NRI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'public:career' %}">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'public:about' %}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'public:contact' %}">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -75,13 +75,16 @@
                 <div class="col-md-4 mb-4">
                     <h5>Our Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="{% url 'home' %}"><i class="bi bi-chevron-right small text-primary"></i> Home</a>
+                        <li><a href="{% url 'public:home' %}"><i class="bi bi-chevron-right small text-primary"></i>
+                                Home</a>
                         </li>
-                        <li><a href="{% url 'about' %}"><i class="bi bi-chevron-right small text-primary"></i> About
+                        <li><a href="{% url 'public:about' %}"><i class="bi bi-chevron-right small text-primary"></i>
+                                About
                                 Us</a></li>
-                        <li><a href="{% url 'property_list' %}"><i class="bi bi-chevron-right small text-primary"></i>
+                        <li><a href="{% url 'public:property_list' %}"><i
+                                    class="bi bi-chevron-right small text-primary"></i>
                                 Projects</a></li>
-                        <li><a href="{% url 'contact' %}"><i class="bi bi-chevron-right small text-primary"></i>
+                        <li><a href="{% url 'public:contact' %}"><i class="bi bi-chevron-right small text-primary"></i>
                                 Contact</a></li>
                     </ul>
                 </div>
@@ -109,7 +112,7 @@
     <!-- Sticky CTA (Global) -->
     <div class="sticky-cta">
         <p class="sticky-text d-none d-md-block mb-0">Ready to find your dream home?</p>
-        <a href="{% url 'contact' %}" class="btn btn-primary rounded-pill px-4 shadow">Book a Visit</a>
+        <a href="{% url 'public:contact' %}" class="btn btn-primary rounded-pill px-4 shadow">Book a Visit</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

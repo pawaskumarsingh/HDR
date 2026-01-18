@@ -21,7 +21,8 @@
                 <div class="container hero-content text-white" data-aos="fade-up">
                     <h1 class="display-3 fw-bold mb-3">Experience Luxury Living</h1>
                     <p class="lead mb-4 letter-spacing-2">Discover our collection of exclusive properties</p>
-                    <a href="{% url 'property_list' %}" class="btn btn-primary btn-lg px-5">View Property Details</a>
+                    <a href="{% url 'public:property_list' %}" class="btn btn-primary btn-lg px-5">View Property
+                        Details</a>
                 </div>
             </div>
         </div>
@@ -34,7 +35,7 @@
                 <div class="container hero-content text-white">
                     <h1 class="display-3 fw-bold mb-3">Your Dream Home Awaits</h1>
                     <p class="lead mb-4 letter-spacing-2">Expert guidance from viewing to closing</p>
-                    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg px-5">Schedule a Viewing</a>
+                    <a href="{% url 'public:contact' %}" class="btn btn-primary btn-lg px-5">Schedule a Viewing</a>
                 </div>
             </div>
         </div>
@@ -47,7 +48,7 @@
                 <div class="container hero-content text-white">
                     <h1 class="display-3 fw-bold mb-3">Prime Locations Only</h1>
                     <p class="lead mb-4 letter-spacing-2">We find the best spots in the city for you</p>
-                    <a href="{% url 'property_list' %}" class="btn btn-primary btn-lg px-5">Get Brochure</a>
+                    <a href="{% url 'public:property_list' %}" class="btn btn-primary btn-lg px-5">Get Brochure</a>
                 </div>
             </div>
         </div>
@@ -112,7 +113,7 @@
                 <h2 class="section-heading mb-1">Featured Properties</h2>
                 <div class="separator-line ms-0"></div>
             </div>
-            <a href="{% url 'property_list' %}" class="btn btn-outline-primary btn-sm">View All</a>
+            <a href="{% url 'public:property_list' %}" class="btn btn-outline-primary btn-sm">View All</a>
         </div>
 
         <!-- Horizontal Scroll Container -->
@@ -139,7 +140,7 @@
                                 property.location }}</p>
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <span class="h5 fw-bold text-accent mb-0">${{ property.price }}</span>
-                                <a href="{% url 'property_detail' property.slug %}"
+                                <a href="{% url 'public:property_detail' property.slug %}"
                                     class="btn btn-sm btn-primary">Details</a>
                             </div>
                         </div>
@@ -250,7 +251,8 @@
     <div class="container">
         <h2 class="mb-3">Ready to Find Your Place?</h2>
         <p class="lead mb-4">Contact us today to schedule a personal tour or get a free consultation.</p>
-        <a href="{% url 'contact' %}" class="btn btn-light btn-lg fw-bold text-primary shadow-lg">Schedule Your Personal
+        <a href="{% url 'public:contact' %}" class="btn btn-light btn-lg fw-bold text-primary shadow-lg">Schedule Your
+            Personal
             Tour</a>
     </div>
 </section>

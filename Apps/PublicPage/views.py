@@ -42,7 +42,7 @@ def property_detail(request, slug):
             email=email,
             message=message
         )
-        return redirect('property_detail', slug=slug)
+        return redirect('public:property_detail', slug=slug)
 
     return render(request, 'publicpage/property_detail.html', {
         'property': property_obj
