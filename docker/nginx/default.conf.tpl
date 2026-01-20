@@ -10,7 +10,7 @@ server {
     #server_name localhost;
 
     location /static {
-        alias /app/static;
+        alias /app/staticfiles/;
     }
 
     location /media {

@@ -31,7 +31,9 @@ services:
       - "5432:5432"
 
   nginx:
-    image: nginx:alpine
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
     container_name: heydayrealty_nginx
     restart: always
     ports:
@@ -39,7 +41,6 @@ services:
     depends_on:
       - web
     volumes:
-      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - static_volume:/app/staticfiles
       - media_volume:/app/media
 
@@ -47,4 +48,5 @@ volumes:
   postgres_data:
   static_volume:
   media_volume:
+
 
