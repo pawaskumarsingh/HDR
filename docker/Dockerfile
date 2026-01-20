@@ -17,11 +17,3 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Copy project
 COPY . .
-
-# Collect static files
-RUN python manage.py collectstatic --noinput
-
-EXPOSE 8000
-
-CMD ["gunicorn", "HeyDayRealty.wsgi:application", "--bind", "0.0.0.0:8000"]
-
