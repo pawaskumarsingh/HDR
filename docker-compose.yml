@@ -52,7 +52,9 @@ services:
 
   nginx:
     <<: *basics
-    build: ./docker/nginx/Dockerfile
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
     container_name: "hdr-nginx"
     restart: always
     ports:
