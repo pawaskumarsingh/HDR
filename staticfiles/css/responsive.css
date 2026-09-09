@@ -5164,7 +5164,7 @@ iframe, embed, object, video {
 
 
 
-        margin-left: 240px;
+       min-width: 240px;
 
 
 
@@ -5216,7 +5216,7 @@ iframe, embed, object, video {
 
 
 
-        left: 275px;
+        left: 0;
 
 
 
@@ -5516,7 +5516,7 @@ iframe, embed, object, video {
 
 
 
-        margin-left: 275px;
+       
 
 
 
@@ -5568,7 +5568,7 @@ iframe, embed, object, video {
 
 
 
-        left: 275px;
+        left: 0;
 
 
 
@@ -10450,4 +10450,5 @@ footer.footer.site-footer,
     .footer.site-footer .footer-bottom-link {
         font-size: 0.75rem !important;
     }
+}
 }
