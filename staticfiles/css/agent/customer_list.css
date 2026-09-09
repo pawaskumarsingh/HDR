@@ -42,15 +42,58 @@
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: #005427 transparent;
+    scrollbar-width: thin;
+}
+
+.premium-table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.premium-table-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.premium-table-wrapper::-webkit-scrollbar-thumb {
+    background: #005427;
+    border-radius: 999px;
+}
+
+.premium-table-wrapper::-webkit-scrollbar-button {
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    color: transparent !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.premium-table-wrapper::-webkit-scrollbar-button:start:decrement,
+.premium-table-wrapper::-webkit-scrollbar-button:end:increment,
+.premium-table-wrapper::-webkit-scrollbar-button:vertical:start:decrement,
+.premium-table-wrapper::-webkit-scrollbar-button:vertical:end:increment {
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    color: transparent !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
 }
 
 .premium-table {
-    width: 100%;
+    width: max-content;
+    min-width: 100%;
 }
 
 .premium-table table {
-    width: 100%;
+    width: max-content;
+    min-width: 100%;
     border-collapse: collapse;
 }
 
