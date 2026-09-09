@@ -4625,7 +4625,7 @@ footer:not(.site-footer) {
 
 .trust-strip-container {
     width: 100%;
-    padding: 10%;
+    padding: 0 10%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
