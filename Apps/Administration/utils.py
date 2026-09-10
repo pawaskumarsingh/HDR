@@ -147,3 +147,66 @@ def sanitize_input(value):
     
     import html
     return html.escape(str(value))
+
+
+import random
+import requests
+from django.core.mail import send_mail
+
+def generate_otp(length=6):
+    """Generates a numeric OTP of given length."""
+    return ''.join([str(random.randint(0, 9)) for _ in range(length)])
+
+
+def send_msg91_otp(phone_number, otp):
+    """
+    Sends an OTP via MSG91 SendOTP API.
+    """
+    auth_key = settings.MSG91_AUTH_KEY
+    template_id = settings.MSG91_TEMPLATE_ID
+    
+    if not auth_key or not template_id:
+        logger.warning(f"MSG91 credentials missing. Would have sent OTP {otp} to {phone_number}")
+        return False
+        
+    url = "https://control.msg91.com/api/v5/otp"
+    
+    # Clean the phone number (ensure country code is present, defaults to 91)
+    cleaned_phone = phone_number.replace("+", "").strip()
+    if len(cleaned_phone) == 10:
+        cleaned_phone = f"91{cleaned_phone}"
+        
+    payload = {
+        "template_id": template_id,
+        "mobile": cleaned_phone,
+        "authkey": auth_key,
+        "otp": otp
+    }
+    
+    try:
+        response = requests.post(url, json=payload)
+        if response.status_code == 200:
+            return True
+        else:
+            logger.error(f"MSG91 API Error: {response.text}")
+            return False
+    except Exception as e:
+        logger.error(f"MSG91 Request Failed: {str(e)}")
+        return False
+
+
+def send_email_otp(email, otp):
+    """
+    Sends an OTP via Email.
+    """
+    subject = "Your Verification Code"
+    message = f"Your verification code is: {otp}\n\nPlease enter this code to verify your account."
+    from_email = settings.DEFAULT_FROM_EMAIL
+    
+    try:
+        send_mail(subject, message, from_email, [email])
+        return True
+    except Exception as e:
+        logger.error(f"Email OTP Failed: {str(e)}")
+        return False
+

@@ -320,7 +320,18 @@ AWS_AGENT_BUCKET_NAME = os.getenv('AWS_AGENT_BUCKET_NAME', 'heyday-agent')
 AWS_CUSTOMER_BUCKET_NAME = os.getenv('AWS_CUSTOMER_BUCKET_NAME', 'heyday-customer')
 AWS_ADMIN_BUCKET_NAME = os.getenv('AWS_ADMIN_BUCKET_NAME', 'heyday-admin')
 AWS_PROPERTY_BUCKET_NAME = os.getenv('AWS_PROPERTY_BUCKET_NAME', 'heyday-property')
-AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', 'heyday-general')
+# Fallback bucket
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME', AWS_ADMIN_BUCKET_NAME)
+
+# Authentication Backends
+AUTHENTICATION_BACKENDS = [
+    'Apps.Administration.backends.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# MSG91 Configurations
+MSG91_AUTH_KEY = os.getenv('MSG91_AUTH_KEY', '')
+MSG91_TEMPLATE_ID = os.getenv('MSG91_TEMPLATE_ID', '')
 
 # Set default storage to General for everything else not explicitly set
 DEFAULT_FILE_STORAGE = 'HeyDayRealty.storage_backends.GeneralMediaStorage'

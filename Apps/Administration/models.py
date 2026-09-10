@@ -322,3 +322,16 @@ class WebsiteInquiry(models.Model):
 
     def __str__(self):
         return f"{self.full_name} ({self.website})"
+
+
+class UserVerification(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='verification')
+    phone_number = models.CharField(max_length=20, blank=True, null=True, unique=True, help_text="Centralized phone number for login")
+    is_email_verified = models.BooleanField(default=False)
+    is_mobile_verified = models.BooleanField(default=False)
+    email_otp = models.CharField(max_length=6, blank=True, null=True)
+    mobile_otp = models.CharField(max_length=6, blank=True, null=True)
+    otp_created_at = models.DateTimeField(blank=True, null=True)
+    
+    def __str__(self):
+        return f"{self.user.username} Verification"
