@@ -16,3 +16,4 @@ openpyxl
 cashfree_pg
 django-storages
 boto3
+requests
