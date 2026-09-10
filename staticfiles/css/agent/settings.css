@@ -206,3 +206,92 @@
 .settings-card .form-control::placeholder {
     color: #94a3b8;
 }
+
+.settings-card-margin {
+    margin-bottom: 1.5rem;
+}
+
+.settings-btn.danger {
+    background: #ef4444;
+}
+
+.settings-btn.danger:hover {
+    background: #dc2626;
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+.settings-card-centered {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.settings-description {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+}
+
+.error-message-small {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Delete Account Page Styles */
+.delete-account-header {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.delete-account-card {
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid #ef4444;
+}
+
+.delete-account-card h3 {
+    color: #ef4444;
+    border-bottom-color: #ef4444;
+}
+
+.delete-warning-box {
+    background-color: #fef2f2;
+    border-left: 4px solid #ef4444;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+.delete-warning-box p {
+    color: #991b1b;
+    margin: 0;
+    font-weight: 600;
+}
+
+.delete-description {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.delete-list {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.delete-list li {
+    margin-bottom: 0.5rem;
+}
+
+.delete-confirm-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.delete-confirm-actions .settings-btn {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.delete-confirm-actions .settings-btn.danger {
+    background: #ef4444;
+}

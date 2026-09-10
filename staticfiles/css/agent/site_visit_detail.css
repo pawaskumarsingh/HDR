@@ -138,3 +138,29 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Site Visit Detail Inline Styles */
+.visit-actions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.visit-status-form {
+    margin-bottom: 1rem;
+}
+
+.visit-status-select {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.visit-update-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.save-feedback-btn {
+    margin-top: 1rem;
+}

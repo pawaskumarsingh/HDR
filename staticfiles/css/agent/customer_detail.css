@@ -275,3 +275,31 @@
     font-weight: 600;
     color: #1a2e2a;
 }
+
+/* Customer Detail Inline Styles */
+.customer-main-image {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+.customer-thumbnail-gallery {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.customer-thumbnail {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.inquiry-separator {
+    margin: 2rem 0;
+    border-color: #e2e8f0;
+}
