@@ -1052,7 +1052,7 @@
     margin-bottom: 1.25rem;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 650px) {
     .view-meta-grid {
         grid-template-columns: 1fr;
     }
@@ -1066,7 +1066,10 @@
     }
 
     .stepper {
-        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
         justify-content: center;
         gap: 0.75rem;
     }
