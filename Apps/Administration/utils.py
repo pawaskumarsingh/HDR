@@ -161,37 +161,73 @@ def generate_otp(length=6):
 def send_msg91_otp(phone_number, otp):
     """
     Sends an OTP via MSG91 SendOTP API.
+    Falls back to legacy API if template-based fails.
     """
+    import pdb
+    pdb.set_trace()
     auth_key = settings.MSG91_AUTH_KEY
     template_id = settings.MSG91_TEMPLATE_ID
-    
-    if not auth_key or not template_id:
-        logger.warning(f"MSG91 credentials missing. Would have sent OTP {otp} to {phone_number}")
+
+    if not auth_key:
+        logger.warning(f"MSG91 auth key missing. Would have sent OTP {otp} to {phone_number}")
         return False
-        
-    url = "https://control.msg91.com/api/v5/otp"
-    
+
     # Clean the phone number (ensure country code is present, defaults to 91)
     cleaned_phone = phone_number.replace("+", "").strip()
     if len(cleaned_phone) == 10:
         cleaned_phone = f"91{cleaned_phone}"
-        
-    payload = {
-        "template_id": template_id,
-        "mobile": cleaned_phone,
+
+    # Try template-based OTP first (if template_id is available)
+    if template_id:
+        url = "https://control.msg91.com/api/v5/otp"
+        headers = {
+            "authkey": auth_key,
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "template_id": template_id,
+            "mobile": cleaned_phone,
+            "otp": otp
+        }
+
+        try:
+            response = requests.post(url, json=payload, headers=headers)
+            logger.info(f"MSG91 Template API Response: {response.status_code}, Body: {response.text}")
+            if response.status_code == 200:
+                response_data = response.json()
+                if response_data.get('type') == 'success':
+                    return True
+        except Exception as e:
+            logger.warning(f"MSG91 Template API Failed: {str(e)}, trying legacy API")
+
+    # Fallback to legacy OTP API (no template required)
+    url = "https://control.msg91.com/api/v5/otp"
+    headers = {
         "authkey": auth_key,
-        "otp": otp
+        "Content-Type": "application/json"
     }
-    
+    payload = {
+        "authkey": auth_key,
+        "mobile": cleaned_phone,
+        "otp": otp,
+        "country": "91"
+    }
+
     try:
-        response = requests.post(url, json=payload)
+        response = requests.post(url, json=payload, headers=headers)
+        logger.info(f"MSG91 Legacy API Response: {response.status_code}, Body: {response.text}")
         if response.status_code == 200:
-            return True
+            response_data = response.json()
+            if response_data.get('type') == 'success':
+                return True
+            else:
+                logger.error(f"MSG91 Legacy API Error: {response.text}")
+                return False
         else:
-            logger.error(f"MSG91 API Error: {response.text}")
+            logger.error(f"MSG91 Legacy API Error: {response.status_code} - {response.text}")
             return False
     except Exception as e:
-        logger.error(f"MSG91 Request Failed: {str(e)}")
+        logger.error(f"MSG91 Legacy Request Failed: {str(e)}")
         return False
 
 

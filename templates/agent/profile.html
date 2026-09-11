@@ -273,11 +273,11 @@
                 <div class="info-row">
                     <div class="info-label">Phone Number</div>
                     <div class="info-value d-flex justify-content-between align-items-center w-100">
-                        <span>{{ user.verification.phone_number|default:agent_profile.phone|default:"Not provided" }}</span>
+                        <span>{{ agent_profile.phone|default:user.verification.phone_number|default:"Not provided" }}</span>
                         {% if user.verification.is_mobile_verified %}
                             <span class="badge bg-success rounded-pill"><i class="bi bi-check-circle me-1"></i> Verified</span>
-                        {% elif user.verification.phone_number or agent_profile.phone %}
-                            <button class="btn btn-sm btn-outline-warning rounded-pill" onclick="requestOTP('mobile', '{{ user.verification.phone_number|default:agent_profile.phone }}')">Verify Now</button>
+                        {% elif agent_profile.phone or user.verification.phone_number %}
+                            <button class="btn btn-sm btn-outline-warning rounded-pill" onclick="requestOTP('mobile', '{{ agent_profile.phone|default:user.verification.phone_number }}')">Verify Now</button>
                         {% endif %}
                     </div>
                 </div>
