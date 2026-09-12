@@ -1,0 +1,253 @@
+:root {
+    --primary: #004526;
+    --secondary: #006638;
+    --radius: 20px;
+}
+
+.edit-profile-page {
+    padding: 24px 30px;
+}
+
+.edit-hero {
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, #004526 0%, #002815 50%, #002200 100%);
+    color: #fff;
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 16px 50px rgba(15, 118, 110, 0.14);
+}
+
+.edit-hero h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 0.4rem 0;
+}
+
+.edit-hero p {
+    margin: 0;
+    opacity: 0.92;
+    font-size: 14px;
+}
+
+/* Profile Card */
+.profile-card {
+    background: #fff;
+    border: 1px solid rgba(15, 118, 110, 0.12);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(15, 118, 110, 0.06);
+    margin-bottom: 1.5rem;
+}
+
+.profile-header {
+    background: linear-gradient(135deg, #004526, #006638);
+    color: #fff;
+    padding: 0.85rem 1.3rem;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.profile-body {
+    padding: 1.4rem 1.5rem;
+}
+
+/* Avatar Section */
+.avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.avatar-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #F1F5F9;
+    overflow: hidden;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 15px rgba(15, 118, 110, 0.1);
+}
+
+.avatar-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-actions {
+    flex: 1;
+}
+
+.avatar-actions .btn-upload {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #004526, #006638);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.avatar-actions .btn-upload:hover {
+    filter: brightness(1.08);
+}
+
+.avatar-actions .btn-remove {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    color: #6B7280;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    margin-left: 0.5rem;
+}
+
+.avatar-actions .btn-remove:hover {
+    border-color: #EF4444;
+    color: #EF4444;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 1.5rem;
+}
+
+.form-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #111827;
+    margin: 0 0 1rem 0;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+    margin-bottom: 0.4rem;
+}
+
+.form-control,
+.form-select {
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    padding: 0.65rem 0.9rem;
+    font-size: 14px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem rgba(0, 69, 38, 0.12);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Password Section */
+.password-section {
+    background: #F8FAFC;
+    border-radius: 14px;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid #E2E8F0;
+}
+
+.password-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.password-toggle input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+}
+
+.password-toggle label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+    cursor: pointer;
+}
+
+/* Action Buttons */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #F1F5F9;
+}
+
+.btn-save {
+    flex: 1;
+    padding: 0.9rem;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #004526, #006638);
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-save:hover {
+    filter: brightness(1.08);
+}
+
+.btn-cancel {
+    padding: 0.9rem 1.5rem;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    color: #6B7280;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-cancel:hover {
+    border-color: #CBD5E1;
+    color: #4B5563;
+}
+
+/* Validation */
+.invalid-feedback {
+    display: block;
+    font-size: 12px;
+    color: #EF4444;
+    margin-top: 0.3rem;
+}
+
+.form-control.is-invalid {
+    border-color: #EF4444;
+}
+
+.form-control.is-invalid:focus {
+    box-shadow: 0 0 0 0.2rem rgba(239, 68, 68, 0.12);
+}
